@@ -15,6 +15,23 @@ class SeroARSAPI(object):
 
     def _get_allData(self):
 
+#-----------Staatenklasse---------------
+        response = urllib2.urlopen("http://de.ars-regendi.com/state/%s/show.html" % self.ID)
+        line = ""
+        content = response.read()
+        tree = lh.fromstring(content)
+                
+        for key in zip(*[iter(tree.xpath('//p/text()'))]*1):
+            tempstr = str(key)
+            if tempstr.find("eingestufte") != -1:
+                staatbesch = tempstr.split()
+                count = 0
+                for i in staatbesch:
+                    if i == "eingestufte":
+                        self.StateDict["Staatenklasse"] = staatbesch[count-1]
+                    else:
+                        count += 1
+                        
 #-----------ERSTE SEITE-----------------
         lastkey = str("")
         response = urllib2.urlopen("http://www.ars-regendi.com/state/%s/haushalt.html" % self.ID)

@@ -147,3 +147,4 @@ else:
 *  Contingent of immigrants
 *  Basic income
 *  Inflation
+*  Staatenklasse
