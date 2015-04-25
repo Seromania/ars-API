@@ -8,7 +8,7 @@ Python2.7
 Linux
 ------
 1. Install lxml
-  $ apt-get install libxml2-dev libxslt1-dev python-dev
+  $ apt-get install libxml2-dev libxslt1-dev python-dev<br>
   $ apt-get install python-lxml
 
 2. Put the arsapi.py into the folder of your .py
@@ -21,22 +21,23 @@ http://lxml.de/installation.html
 This API is not the fastest, since I could not find out a better way than parsing the webpages to get the Data I wanted.
 
 #Functions to use
-getData("data") //returns the value of "data"
-getAllData() //returns the dictionary with all data
+getData("data") //returns the value of "data"<br>
+getAllData() //returns the dictionary with all data<br>
 
 #How to Use
-import arsapi
+```
+from arsapi import SeroARSAPI
 
 api = SeroARSAPI(<StateID>) #This can take a while, since it has to load about 8 webpages and parses them to get all the data
+
 data = api.getData(<Parsed Data>) #getData return False if given Parameter is not known
 
 if data is not False:
     print data
 else:
     print("Key was unknown")
+```
     
-
-
 #Parsed Data
 *  PE payments
 *  Level of progress
