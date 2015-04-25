@@ -7,7 +7,7 @@ Python2.7
 
 Linux
 ------
-1. Install lxml
+1. Install lxml<br>
   $ apt-get install libxml2-dev libxslt1-dev python-dev<br>
   $ apt-get install python-lxml
 
